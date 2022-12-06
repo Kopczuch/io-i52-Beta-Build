@@ -1,4 +1,4 @@
-# BuildingInfo
+# BuildingInfo  ![example workflow](https://github.com/Kopczuch/io-i52-Beta-Build/actions/workflows/ci.yml/badge.svg)
 
 ## Członkowie zespołu:
 - Adam Kopiec 148198 (Proxy Product Owner)
