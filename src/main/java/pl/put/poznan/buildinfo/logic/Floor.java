@@ -10,7 +10,7 @@ import java.util.List;
  * @version 1.0
  */
 
-public class Floor extends Location{
+public class Floor extends Interior {
 
     private List<Room> rooms = new ArrayList<Room>();
     private int id;

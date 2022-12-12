@@ -11,7 +11,7 @@ import java.util.List;
  */
 
 
-public class Building extends Location{
+public class Building extends Location {
 
     private List<Floor> floors = new ArrayList<Floor>();
     private int id;
