@@ -5,13 +5,17 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.buildinfo.rest"})
+@RestController
 public class BuildingInfoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BuildingInfoApplication.class, args);
+    }
+
+    @GetMapping
+    public String hello() {
+        return "Hello World!";
     }
 }
