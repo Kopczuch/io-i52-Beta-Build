@@ -3,6 +3,9 @@ package pl.put.poznan.buildinfo.logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /*
  * Implementation of the abstract class Building
  *
@@ -17,8 +20,10 @@ public class Building extends Location{
     private int id;
     private String name;
 
-    public Building(int id, String name){
+    @JsonCreator
+    public Building(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("floors") List<Floor> floors){
         super(id, name);
+        this.floors = floors;
     }
 
     public List<Floor> getFloors() {

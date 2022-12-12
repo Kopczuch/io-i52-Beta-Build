@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "Budynek Administracyjny",
+        "floors": [
+            {
+                "id": 1,
+                "name": "Parter",
+                "rooms": []
+            },
+            {
+                "id": 2,
+                "name": "Piętro drugie",
+                "rooms": []
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Budynek Gastronomiczny",
+        "floors": [
+            {
+                "id": 1,
+                "name": "Parter z budynku 2",
+                "rooms": []
+            },
+            {
+                "id": 2,
+                "name": "Piętro drugie",
+                "rooms": []
+            }
+        ]
+    }
+]

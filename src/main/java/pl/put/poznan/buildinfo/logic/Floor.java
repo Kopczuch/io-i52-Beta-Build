@@ -3,6 +3,9 @@ package pl.put.poznan.buildinfo.logic;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /*
  * Implementation of the abstract class Floor
  *
@@ -16,9 +19,10 @@ public class Floor extends Location{
     private int id;
     private String name;
 
-
-    public Floor(int id, String name){
+    @JsonCreator
+    public Floor(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("rooms") List<Room> rooms) {
         super(id, name);
+        this.rooms = rooms;
     }
 
     public List<Room> getRooms(){

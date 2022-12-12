@@ -1,5 +1,7 @@
 package pl.put.poznan.buildinfo.logic;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /*
 * Implementation of the abstract class Location
 *
@@ -12,7 +14,8 @@ public abstract class Location {
     private int id;
     private String name;
 
-    public Location(int id, String name){
+
+    public Location(int id, String name) {
         this.id = id;
         this.name = name;
     }
