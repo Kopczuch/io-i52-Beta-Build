@@ -25,7 +25,7 @@ public class Building extends Location {
         return floors;
     }
 
-    public void addFloor(Floor f){
+    public void addInterior(Floor f){
         floors.add(f);
     }
 
