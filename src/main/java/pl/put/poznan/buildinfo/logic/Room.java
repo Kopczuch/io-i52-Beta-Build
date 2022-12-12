@@ -8,7 +8,7 @@ package pl.put.poznan.buildinfo.logic;
  */
 
 
-public class Room extends Interior {
+public class Room extends Location{
 
     private double id;
     private String name;
@@ -18,7 +18,7 @@ public class Room extends Interior {
 
     private double heating;
 
-    public Room(int id, String name) {
+    public Room(int id, String name){
         super(id, name);
     }
 
