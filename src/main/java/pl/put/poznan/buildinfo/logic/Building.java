@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 
 
-public class Building extends Location{
+public class Building extends Location {
 
     private List<Floor> floors = new ArrayList<Floor>();
     private int id;
@@ -30,7 +30,7 @@ public class Building extends Location{
         return floors;
     }
 
-    public void addFloor(Floor f){
+    public void addInterior(Floor f){
         floors.add(f);
     }
 

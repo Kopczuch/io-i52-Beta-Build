@@ -13,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * @version 1.0
  */
 
-public class Floor extends Location{
+public class Floor extends Location {
 
     private List<Room> rooms = new ArrayList<Room>();
     private int id;
