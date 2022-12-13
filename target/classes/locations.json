@@ -1,0 +1,69 @@
+[
+    {
+        "id": 1,
+        "name": "Budynek Administracyjny",
+        "type": "building",
+        "floors": [
+            {
+                "id": 2,
+                "name": "Parter",
+                "type": "floor",
+                "rooms": [
+                    {
+                        "id": 3,
+                        "name": "Pokoj z super fotelem",
+                        "type": "room",
+                        "area": 2.2,
+                        "volume": 1.3,
+                        "light": 4.1,
+                        "heating": 12.2
+                    },
+                    {
+                        "id": 4,
+                        "name": "Pokoj z super fotelem",
+                        "type": "room",
+                        "area": 3.12,
+                        "volume": 3.3,
+                        "light": 3.1,
+                        "heating": 1.2
+                    }
+                ]
+            },
+            {
+                "id": 5,
+                "name": "Piętro drugie",
+                "type": "floor",
+                "rooms": [
+                    {
+                        "id": 6,
+                        "name": "Pokoj z super fotelem",
+                        "type": "room",
+                        "area": 1.1,
+                        "volume": 1.2,
+                        "light": 2.1,
+                        "heating": 312.0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Budynek Gastronomiczny",
+        "type": "building",
+        "floors": [
+            {
+                "id": 8,
+                "name": "Parter z budynku 2",
+                "type": "floor",
+                "rooms": []
+            },
+            {
+                "id": 9,
+                "name": "Piętro drugie",
+                "type": "floor",
+                "rooms": []
+            }
+        ]
+    }
+]

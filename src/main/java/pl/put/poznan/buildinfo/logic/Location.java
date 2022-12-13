@@ -1,20 +1,26 @@
 package pl.put.poznan.buildinfo.logic;
 
+import java.io.Serializable;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
 
-/*
-* Implementation of the abstract class Location
-*
-* @author Mikołaj Krakowiak
-* @version 1.0
- */
-
-public abstract class Location {
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
+@JsonSubTypes({
+    @JsonSubTypes.Type(value = Room.class, name = "room"),
+    @JsonSubTypes.Type(value = Floor.class, name = "floor"),
+    @JsonSubTypes.Type(value = Building.class, name = "building")
+})
+public abstract class Location implements Serializable {
 
     private int id;
     private String name;
 
-    public Location(int id, String name) {
+    @JsonCreator
+    public Location(@JsonProperty("id") int id, @JsonProperty("name") String name) {
         this.id = id;
         this.name = name;
     }
@@ -40,4 +46,6 @@ public abstract class Location {
     public abstract double calculateVolume();
 
     public abstract double calculateLightPower();
+
+    public abstract List<Location> getNestedList();
 }

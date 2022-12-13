@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Budynek Gastronomiczny",
+        "type": "building",
+        "floors": []
+    },
+    {
+        "id": 2,
+        "name": "Parter",
+        "type": "floor",
+        "rooms": []
+    }
+]

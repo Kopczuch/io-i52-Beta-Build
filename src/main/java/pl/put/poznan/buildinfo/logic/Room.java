@@ -1,28 +1,23 @@
 package pl.put.poznan.buildinfo.logic;
 
-/*
- * Implementation of the abstract class Room
- *
- * @author Mikołaj Krakowiak
- * @version 1.0
- */
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 public class Room extends Location{
 
-    private double id;
-    private String name;
     private double area;
     private double volume;
     private double light;
-
     private double heating;
 
-    public Room(int id, String name){
-        super(id, name);
-    }
-
-    public Room(int id, String name, double area, double volume, double light, double heating){
+    @JsonCreator
+    public Room(@JsonProperty("id") int id, @JsonProperty("name") String name, 
+                @JsonProperty("area") double area, @JsonProperty("volume") double volume, 
+                @JsonProperty("light") double light, @JsonProperty("heating") double heating
+    ) {
         super(id, name);
         this.area = area;
         this.volume = volume;
@@ -75,5 +70,10 @@ public class Room extends Location{
     @Override
     public double calculateLightPower() {
         return light/area;
+    }
+
+    @Override 
+    public List<Location> getNestedList() {
+        return null;
     }
 }

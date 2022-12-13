@@ -6,18 +6,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/*
- * Implementation of the abstract class Floor
- *
- * @author Mikołaj Krakowiak
- * @version 1.0
- */
-
 public class Floor extends Location {
 
     private List<Room> rooms = new ArrayList<Room>();
-    private int id;
-    private String name;
 
     @JsonCreator
     public Floor(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("rooms") List<Room> rooms) {
@@ -58,5 +49,10 @@ public class Floor extends Location {
             sumLightPower += r.calculateLightPower();
         }
         return sumLightPower;
+    }
+
+    @Override 
+    public List getNestedList() {
+        return rooms;
     }
 }

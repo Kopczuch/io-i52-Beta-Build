@@ -6,19 +6,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-/*
- * Implementation of the abstract class Building
- *
- * @author Mikołaj Krakowiak
- * @version 1.0
- */
-
-
 public class Building extends Location {
 
     private List<Floor> floors = new ArrayList<Floor>();
-    private int id;
-    private String name;
 
     @JsonCreator
     public Building(@JsonProperty("id") int id, @JsonProperty("name") String name, @JsonProperty("floors") List<Floor> floors){
@@ -59,5 +49,10 @@ public class Building extends Location {
             sumLightPower += f.calculateLightPower();
         }
         return sumLightPower;
+    }
+
+    @Override 
+    public List getNestedList() {
+        return floors;
     }
 }
