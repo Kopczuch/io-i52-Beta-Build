@@ -14,7 +14,7 @@ import pl.put.poznan.buildinfo.logic.*;
 import java.util.List;
 
 @RestController
-public class locationsController {
+public class BuildingInfoController {
     
     static ObjectMapper objectMapper = new ObjectMapper();
 
@@ -76,10 +76,24 @@ public class locationsController {
 
     // ########## CALCULATIONS ##########
 
-    // zwraca zsumowaną wartość powierzchni dla lokalizacji o danym ID
-    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value="/calculatearea/{id}")
-    public static double calculateArea(@PathVariable("id") int x) throws IOException {
+    // Function returning AREA of the location with given id
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value="/get_area/{id}")
+    public static double getArea(@PathVariable("id") int x) throws IOException {
         return findById(getListOfLocations(), x).calculateArea();
+    }
+
+    // Function returning VOLUME of the location with given id
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/get_volume/{id}")
+    public static double getVolume(@PathVariable("id") int x) throws IOException
+    {
+        return findById(getListOfLocations(), x).calculateVolume();
+    }
+
+    // Function returning LIGHT POWER of the location with given id
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/get_light_power/{id}")
+    public static double getLightPower(@PathVariable("id") int x) throws IOException
+    {
+        return findById(getListOfLocations(), x).calculateLightPower();
     }
 
 

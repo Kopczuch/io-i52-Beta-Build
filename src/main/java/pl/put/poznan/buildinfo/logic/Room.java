@@ -72,6 +72,10 @@ public class Room extends Location{
         return light/area;
     }
 
+    public double calculateHeatingUsage() {
+        return heating/volume;
+    }
+
     @Override 
     public List<Location> getNestedList() {
         return null;
