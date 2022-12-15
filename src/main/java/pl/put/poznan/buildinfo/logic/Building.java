@@ -20,7 +20,7 @@ public class Building extends Location {
         return floors;
     }
 
-    public void addInterior(Floor f){
+    public void addFloor(Floor f){
         floors.add(f);
     }
 
