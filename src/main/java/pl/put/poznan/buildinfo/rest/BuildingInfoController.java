@@ -25,17 +25,17 @@ public class BuildingInfoController {
 
     // static TypeReference<Location> typeReferenceLocation2 = new TypeReference<Location>() {};
     
-    // @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/ListOfBuildings")
-    // public static List<Building> getListOfBuildings() throws IOException {
-    //     List<Building> listaBudynkow = objectMapper.readValue(new File("src/main/resources/locations.json"), typeReferenceBuilding);
-    //     return listaBudynkow;
-    // }
+     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/ListOfBuildings")
+     public static List<Building> getListOfBuildings() throws IOException {
+         List<Building> listaBudynkow = objectMapper.readValue(new File("src/main/resources/locations.json"), typeReferenceBuilding);
+         return listaBudynkow;
+     }
 
-    // @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/building-{id}")
-    // public static Building getBuilding(@PathVariable("id") int x) throws IOException {
-    //     Building budynek = getListOfBuildings().stream().filter(_building -> _building.getId() == x).findFirst().orElse(null);
-    //     return budynek;
-    // }
+     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/building-{id}")
+     public static Building getBuilding(@PathVariable("id") int x) throws IOException {
+         Building budynek = getListOfBuildings().stream().filter(_building -> _building.getId() == x).findFirst().orElse(null);
+         return budynek;
+     }
 
     // @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/building-{id}-floors")
     // public static List<Floor> getListOfFloors(@PathVariable("id") int x) throws IOException {
@@ -50,12 +50,15 @@ public class BuildingInfoController {
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/")
     public String root()
     {
-        String rootMessage = "Witaj!\n\n" +
-                            "/ListOfLocations           -> Wyswietla liste wszystkich lokacji\n" +
-                            "/show?id=<id>              -> Wyswietla dane lokacji o podanym id\n" +
-                            "/get_area?id=<id>          -> Wyswietla powierzchnie lokacji o podanym id\n" +
-                            "/get_volume?id=<id>        -> Wyswietla objetosc lokacji o podanym id\n" +
-                            "/get_light_power?id=<id>   -> Wyswietla moc oswietlenia lokacji o podanym id\n";
+        String rootMessage =
+                "Witaj!\n\n" +
+                "/ListOfLocations                           -> Wyswietla liste wszystkich lokacji\n" +
+                "/show?id=<id>                              -> Wyswietla dane lokacji o podanym id\n" +
+                "/get_area?id=<id>                          -> Wyswietla powierzchnie lokacji o podanym id\n" +
+                "/get_volume?id=<id>                        -> Wyswietla objetosc lokacji o podanym id\n" +
+                "/get_light_power?id=<id>                   -> Wyswietla moc oswietlenia lokacji o podanym id\n" +
+                "/get_heating_usage?id=<id>                 -> Wyswietla zuzycie energii na ogrzewanie lokacji o podanym id\n" +
+                "/heating_over_limit?limit=<limit>&id=<id>  -> Wyswietla pomieszczenia ktore przekraczaja okreslony limit zuzycia energii na ogrzewanie w budynku o podanym id";
         return rootMessage;
     }
 
@@ -81,22 +84,23 @@ public class BuildingInfoController {
         return null;
     }
 
-//    Sad attempt at creating function checking if room heating usage is over the limit
-//    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/heating")
-//    public static List<Room> HeatingOverdose(@RequestParam("limit") double limit) throws IOException
-//    {
-//        List<Room> listRooms = objectMapper.readValue(new File("src/main/resources/locations.json"), typeReferenceRoom);
-//        List<Room> Overdose = new ArrayList<>();
-//        for (Room r : listRooms)
-//        {
-//            if (r.calculateHeatingUsage() > limit)
-//            {
-//                Overdose.add(r);
-//            }
-//        }
-//        return Overdose;
-//    }
-
+    @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/heating_over_limit")
+    public static List<Room> HeatingOverdose(@RequestParam("limit") double limit, @RequestParam("id") int id) throws IOException
+    {
+        Building building = getBuilding(id);
+        List<Room> Overdose = new ArrayList<>();
+        for (Floor f : building.getFloors())
+        {
+            for (Room r : f.getRooms())
+            {
+                if (r.calculateHeatingUsage() > limit)
+                {
+                    Overdose.add(r);
+                }
+            }
+        }
+        return Overdose;
+    }
 
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value="/show")
     public static Location getLocation(@RequestParam("id") int id) throws IOException
