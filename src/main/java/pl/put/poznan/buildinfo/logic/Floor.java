@@ -51,6 +51,17 @@ public class Floor extends Location {
         return sumLightPower;
     }
 
+    @Override
+    public  double calculateHeatingUsage()
+    {
+        double sumHeatingUsage = 0;
+        for (Room r : rooms)
+        {
+            sumHeatingUsage += r.calculateHeatingUsage();
+        }
+        return sumHeatingUsage;
+    }
+
     @Override 
     public List getNestedList() {
         return rooms;
