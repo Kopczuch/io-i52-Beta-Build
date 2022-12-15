@@ -72,6 +72,7 @@ public class Room extends Location{
         return light/area;
     }
 
+    @Override
     public double calculateHeatingUsage() {
         return heating/volume;
     }

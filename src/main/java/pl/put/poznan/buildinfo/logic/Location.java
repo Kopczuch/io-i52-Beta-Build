@@ -47,5 +47,7 @@ public abstract class Location implements Serializable {
 
     public abstract double calculateLightPower();
 
+    public abstract double calculateHeatingUsage();
+
     public abstract List<Location> getNestedList();
 }
