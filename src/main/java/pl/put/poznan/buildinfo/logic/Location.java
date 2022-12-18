@@ -11,15 +11,15 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 /**
  * An abstract class representing locations, whose methods are then used by inheriting classes: Building, Floor and Room.
  *
- * @verion 2.0
  * @author Mikołaj Krakowiak, Jakub Kozłowski, Adam Kopiec
+ * @verion 2.0
  */
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = Room.class, name = "room"),
-    @JsonSubTypes.Type(value = Floor.class, name = "floor"),
-    @JsonSubTypes.Type(value = Building.class, name = "building")
+        @JsonSubTypes.Type(value = Room.class, name = "room"),
+        @JsonSubTypes.Type(value = Floor.class, name = "floor"),
+        @JsonSubTypes.Type(value = Building.class, name = "building")
 })
 
 public abstract class Location implements Serializable {
@@ -30,7 +30,7 @@ public abstract class Location implements Serializable {
     /**
      * Basic constructor of location-type objects.
      *
-     * @param id location identifier
+     * @param id   location identifier
      * @param name location name
      */
     @JsonCreator

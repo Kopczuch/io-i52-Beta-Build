@@ -12,30 +12,16 @@ import pl.put.poznan.buildinfo.logic.*;
 import java.io.IOException;
 import java.util.List;
 
-
+/**
+ * BuildingInfo project main class, responsible for running the program
+ *
+ * @author Adam Kopiec, Jakub Kozłowski, Mikołaj Krakowiak
+ * @version 2.0
+ */
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.buildinfo.rest"})
 public class BuildingInfoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BuildingInfoApplication.class, args);
     }
-
-    // @GetMapping("/budynki")
-    // public List<Building> buildings() throws IOException {
-    //     return ReadJsonFile.getListOfBuildings();
-    // }
-
-    // @GetMapping("/budynek-0")
-    // public Building oneBuilding() throws IOException {
-    //     return ReadJsonFile.getBuilding(0);
-    // }
-
-    // @GetMapping("/pietra-budynek-0")
-    // public List<Floor> floors() throws IOException {
-    //     return ReadJsonFile.getListOfFloors(0);
-    // }
-    // @GetMapping("/test")
-    // public static String hello() {
-    //     return "Testujemy czy dziala";
-    // }
 }
