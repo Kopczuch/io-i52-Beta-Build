@@ -2,6 +2,7 @@ package pl.put.poznan.buildinfo.rest;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
@@ -17,24 +18,25 @@ public class BuildingInfoController {
     
     static ObjectMapper objectMapper = new ObjectMapper();
 
-     static TypeReference<List<Building>> typeReferenceBuilding = new TypeReference<List<Building>>() {};
+    static TypeReference<List<Building>> typeReferenceBuilding = new TypeReference<List<Building>>() {};
     // static TypeReference<List<Floor>> typeReferenceFloor = new TypeReference<List<Floor>>() {};
     static TypeReference<List<Room>> typeReferenceRoom = new TypeReference<List<Room>>() {};
     static TypeReference<List<Location>> typeReferenceLocation = new TypeReference<List<Location>>() {};
 
 
     // static TypeReference<Location> typeReferenceLocation2 = new TypeReference<Location>() {};
-    
+
+    // Returns list of buildings
      @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/ListOfBuildings")
      public static List<Building> getListOfBuildings() throws IOException {
          List<Building> listaBudynkow = objectMapper.readValue(new File("src/main/resources/locations.json"), typeReferenceBuilding);
          return listaBudynkow;
      }
 
+     // Returns building with given id
      @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/building-{id}")
      public static Building getBuilding(@PathVariable("id") int x) throws IOException {
-         Building budynek = getListOfBuildings().stream().filter(_building -> _building.getId() == x).findFirst().orElse(null);
-         return budynek;
+         return getListOfBuildings().stream().filter(_building -> _building.getId() == x).findFirst().orElse(null);
      }
 
     // @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/building-{id}-floors")
@@ -46,7 +48,7 @@ public class BuildingInfoController {
 
     // ########## LOCATIONS ##########
 
-    //Root
+    // Root
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/")
     public String root()
     {
@@ -62,11 +64,13 @@ public class BuildingInfoController {
         return rootMessage;
     }
 
+    // Returns list of locations
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/ListOfLocations")
     public static List<Location> getListOfLocations() throws IOException {
         return objectMapper.readValue(new File("src/main/resources/locations.json"), typeReferenceLocation);
     }
 
+    // Returns location with given id
     public static Location findById(List<Location> list, int id) {
         for (Location o : list) {
             if (o.getId() == id) {
@@ -84,6 +88,7 @@ public class BuildingInfoController {
         return null;
     }
 
+    // Returns buildings with heating usage over given limit
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/heating_over_limit")
     public static List<Room> HeatingOverdose(@RequestParam("limit") double limit, @RequestParam("id") int id) throws IOException
     {
@@ -102,15 +107,30 @@ public class BuildingInfoController {
         return Overdose;
     }
 
+    // Returns location with given id
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value="/show")
-    public static Location getLocation(@RequestParam("id") int id) throws IOException
+    public static String getLocation(@RequestParam("id") String idString) throws IOException
     {
-        return findById(getListOfLocations(), id);
+        try
+        {
+            int id = Integer.parseInt(idString);
+            ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+            if (findById(getListOfLocations(), id) != null)
+            {
+                return ow.writeValueAsString(findById(getListOfLocations(), id));
+            }
+            else
+                return "Brak lokacji o podanym id";
+        }
+        catch (java.lang.NumberFormatException e)
+        {
+            return "Id musi być liczbą";
+        }
     }
 
     // ########## CALCULATIONS ##########
 
-    // Function returning AREA of the location with given id
+    // Returns AREA of the location with given id
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value="/get_area")
     public static String getArea(@RequestParam("id") String idString) throws IOException
     {
@@ -131,7 +151,7 @@ public class BuildingInfoController {
 
     }
 
-    // Function returning VOLUME of the location with given id
+    // Returns VOLUME of the location with given id
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/get_volume")
     public static String getVolume(@RequestParam("id") String idString) throws IOException
     {
@@ -151,7 +171,7 @@ public class BuildingInfoController {
         }
     }
 
-    // Function returning LIGHT POWER of the location with given id
+    // Returns LIGHT POWER of the location with given id
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/get_light_power")
     public static String getLightPower(@RequestParam("id") String idString) throws IOException
     {
@@ -171,6 +191,7 @@ public class BuildingInfoController {
         }
     }
 
+    // Returns HEATING USAGE of the location with given id
     @RequestMapping(method = RequestMethod.GET, produces = "application/json", value = "/get_heating_usage")
     public static String getHeatingUsage(@RequestParam("id") String idString) throws IOException
     {
