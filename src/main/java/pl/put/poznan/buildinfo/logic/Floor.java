@@ -6,6 +6,9 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
+
+
 public class Floor extends Location {
 
     private List<Room> rooms = new ArrayList<Room>();
