@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
  * An abstract class representing locations, whose methods are then used by inheriting classes: Building, Floor and Room.
  *
  * @author Mikołaj Krakowiak, Jakub Kozłowski, Adam Kopiec
- * @verion 2.0
+ * @version 2.0
  */
 
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type")
