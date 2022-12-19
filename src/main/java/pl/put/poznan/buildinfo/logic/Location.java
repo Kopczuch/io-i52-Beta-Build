@@ -24,7 +24,14 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 
 public abstract class Location implements Serializable {
 
+    /**
+     * Location unique identifier.
+     */
     private int id;
+
+    /**
+     * Name of location.
+     */
     private String name;
 
     /**
@@ -75,13 +82,38 @@ public abstract class Location implements Serializable {
         return name;
     }
 
+    /**
+     * Abstract method for calculating location area.
+     *
+     * @return locationArea total location area
+     */
     public abstract double calculateArea();
 
+    /**
+     * Abstract method for calculating location volume.
+     *
+     * @return locationVolume total location volume
+     */
     public abstract double calculateVolume();
 
+    /**
+     * Abstract method for calculating light power.
+     *
+     * @return locationLightPower total location light power
+     */
     public abstract double calculateLightPower();
 
+    /**
+     * Abstract method for calculating energy consumption for heating.
+     *
+     * @return locationHeatingUsage total location energy consumption for heating
+     */
     public abstract double calculateHeatingUsage();
 
+    /**
+     * Abstract method enabling the return of floors for the building and rooms for the floors.
+     *
+     * @return nestedList list of floors or rooms, if used on room object, returns null
+     */
     public abstract List<Location> getNestedList();
 }

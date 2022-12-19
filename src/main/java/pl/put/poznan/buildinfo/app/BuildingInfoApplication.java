@@ -21,6 +21,11 @@ import java.util.List;
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.buildinfo.rest"})
 public class BuildingInfoApplication {
 
+    /**
+     * Method responsible for running the programme.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         SpringApplication.run(BuildingInfoApplication.class, args);
     }

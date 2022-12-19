@@ -14,6 +14,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Building extends Location {
 
+    /**
+     * List of floors located in the building
+     */
     private List<Floor> floors = new ArrayList<Floor>();
 
     /**
@@ -115,6 +118,6 @@ public class Building extends Location {
      */
     @Override
     public List getNestedList() {
-        return floors;
+        return getFloors();
     }
 }

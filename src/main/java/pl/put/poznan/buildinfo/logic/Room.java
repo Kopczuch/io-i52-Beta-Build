@@ -13,10 +13,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Room extends Location {
 
+    /**
+     * Room area in square metres
+     */
     private double area;
+    /**
+     * Room volume in cubic metres
+     */
     private double volume;
+    /**
+     * Room total lighting power
+     */
     private double light;
-    private double heating;
+    /**
+     * Room heating energy consumption level
+     */
+    private float heating;
 
     /**
      * Class constructor specifying the room features.
@@ -31,7 +43,7 @@ public class Room extends Location {
     @JsonCreator
     public Room(@JsonProperty("id") int id, @JsonProperty("name") String name,
                 @JsonProperty("area") double area, @JsonProperty("volume") double volume,
-                @JsonProperty("light") double light, @JsonProperty("heating") double heating
+                @JsonProperty("light") double light, @JsonProperty("heating") float heating
     ) {
         super(id, name);
         this.area = area;
@@ -72,7 +84,7 @@ public class Room extends Location {
      *
      * @param heating room heating
      */
-    public void setHeating(double heating) {
+    public void setHeating(float heating) {
         this.heating = heating;
     }
 
