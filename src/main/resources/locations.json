@@ -5,12 +5,12 @@
         "type": "building",
         "floors": [
             {
-                "id": 2,
+                "id": 10,
                 "name": "Parter",
                 "type": "floor",
                 "rooms": [
                     {
-                        "id": 3,
+                        "id": 101,
                         "name": "Pokoj z super fotelem",
                         "type": "room",
                         "area": 2.2,
@@ -19,7 +19,7 @@
                         "heating": 12.2
                     },
                     {
-                        "id": 4,
+                        "id": 102,
                         "name": "Pokoj z super fotelem",
                         "type": "room",
                         "area": 3.12,
@@ -30,12 +30,12 @@
                 ]
             },
             {
-                "id": 5,
-                "name": "Piętro drugie",
+                "id": 11,
+                "name": "Pierwsze pietro",
                 "type": "floor",
                 "rooms": [
                     {
-                        "id": 6,
+                        "id": 111,
                         "name": "Pokoj z super fotelem",
                         "type": "room",
                         "area": 1.1,
@@ -48,19 +48,19 @@
         ]
     },
     {
-        "id": 7,
+        "id": 2,
         "name": "Budynek Gastronomiczny",
         "type": "building",
         "floors": [
             {
-                "id": 8,
+                "id": 20,
                 "name": "Parter z budynku 2",
                 "type": "floor",
                 "rooms": []
             },
             {
-                "id": 9,
-                "name": "Piętro drugie",
+                "id": 21,
+                "name": "Pierwsze pietro",
                 "type": "floor",
                 "rooms": []
             }
