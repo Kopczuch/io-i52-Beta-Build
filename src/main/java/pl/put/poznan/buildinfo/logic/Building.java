@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Class representing a building, inheriting from the location class.
  *
  * @author Mikołaj Krakowiak, Jakub Kozłowksi, Adam Kopiec
- * @version 2.0
+ * @version 1.0
  */
 public class Building extends Location {
 

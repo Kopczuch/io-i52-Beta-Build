@@ -16,7 +16,7 @@ import java.util.List;
  * BuildingInfo project main class, responsible for running the program
  *
  * @author Adam Kopiec, Jakub Kozłowski, Mikołaj Krakowiak
- * @version 2.0
+ * @version 1.0
  */
 @SpringBootApplication(scanBasePackages = {"pl.put.poznan.buildinfo.rest"})
 public class BuildingInfoApplication {

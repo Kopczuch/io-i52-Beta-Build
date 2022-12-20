@@ -19,7 +19,7 @@ import java.util.List;
  * Implementation of the BuildingInfoController class responsible for controlling the REST API interface
  *
  * @author Jakub Kozłowski, Adam Kopiec, Mikołaj Krakowiak
- * @version 2.0
+ * @version 1.0
  */
 @RestController
 public class BuildingInfoController {

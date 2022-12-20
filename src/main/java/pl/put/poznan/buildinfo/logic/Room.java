@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Class representing a room, inheriting from the location class.
  *
  * @author Mikołaj Krakowiak, Jakub Kozłowksi, Adam Kopiec
- * @version 2.0
+ * @version 1.0
  */
 public class Room extends Location {
 

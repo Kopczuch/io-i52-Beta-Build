@@ -13,14 +13,11 @@
 
     <groupId>pl.put.poznan</groupId>
     <artifactId>BuildingInfo</artifactId>
-    <version>2.0</version>
+    <version>1.0</version>
 
-	<properties>
-        <java.version>11</java.version>
-    </properties>
-
-    
     <dependencies>
+
+
         <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -55,13 +52,6 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.10.0.pr1</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>2.0.6</version>
-        </dependency>
-
     </dependencies>
 
 

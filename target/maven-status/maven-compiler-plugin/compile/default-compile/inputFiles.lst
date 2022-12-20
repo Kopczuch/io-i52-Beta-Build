@@ -1,3 +1,6 @@
-/Users/mochodek/Documents/Dydaktyka/Wyklady/IO/Laboratory classes/projekt/ioprojectarchitecture/src/main/java/pl/put/poznan/transformer/app/TextTransformerApplication.java
-/Users/mochodek/Documents/Dydaktyka/Wyklady/IO/Laboratory classes/projekt/ioprojectarchitecture/src/main/java/pl/put/poznan/transformer/logic/TextTransformer.java
-/Users/mochodek/Documents/Dydaktyka/Wyklady/IO/Laboratory classes/projekt/ioprojectarchitecture/src/main/java/pl/put/poznan/transformer/rest/TextTransformerController.java
+C:\Users\jarja\Desktop\Io_project\io-i52-Beta-Build\src\main\java\pl\put\poznan\buildinfo\logic\Building.java
+C:\Users\jarja\Desktop\Io_project\io-i52-Beta-Build\src\main\java\pl\put\poznan\buildinfo\logic\Floor.java
+C:\Users\jarja\Desktop\Io_project\io-i52-Beta-Build\src\main\java\pl\put\poznan\buildinfo\logic\Location.java
+C:\Users\jarja\Desktop\Io_project\io-i52-Beta-Build\src\main\java\pl\put\poznan\buildinfo\rest\BuildingInfoController.java
+C:\Users\jarja\Desktop\Io_project\io-i52-Beta-Build\src\main\java\pl\put\poznan\buildinfo\app\BuildingInfoApplication.java
+C:\Users\jarja\Desktop\Io_project\io-i52-Beta-Build\src\main\java\pl\put\poznan\buildinfo\logic\Room.java
