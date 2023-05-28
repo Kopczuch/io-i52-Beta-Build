@@ -19,5 +19,4 @@ https://docs.google.com/spreadsheets/d/1Nm62_frke1bT8kyt0Nt4sMLzaMb0EFePAxx_shNL
 ### Wnioski:
 - Należy zwiększyć liczbę spotkań scrumowych (min. 1 w trakcie tygodnia)
 - Należy komentować tworzone funkcję na bieżąco 
-- Zutylizować Bartka
 - Zabrać się wcześniej za pracę, lepiej rozplanować czas i obowiązki członków zespołu
